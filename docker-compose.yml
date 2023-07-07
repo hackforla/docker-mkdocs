@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  mkdocs:
+    image: hackforlaops/mkdocs:testing
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: mkdocs serve --dev-addr 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
