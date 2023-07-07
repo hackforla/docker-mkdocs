@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+docs
+scripts
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+pyproject.toml
+poetry.lock
+mkdocs.yml
+README.md
+*.swp
+temp_dir
+LICENSE
+.github

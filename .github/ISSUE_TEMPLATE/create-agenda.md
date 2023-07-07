@@ -4,13 +4,14 @@ about: Assign issue to all team members day after meetup in prep for next meetup
 title: ''
 labels: documentation, help wanted, question
 assignees: ''
-
 ---
 
 ### Overview
+
 This issue tracks the agenda for our weekly meetings
 
 #### Issue Template
+
 ```
 ## [Date ]  Meeting Agenda
 
@@ -39,7 +40,8 @@ This issue tracks the agenda for our weekly meetings
 ### Task Items
 ```
 
-### Links to other agenda issues for your team 
+### Links to other agenda issues for your team
+
 (so that you can easily post on their agendas items that come up at yours)
 
 ### Previous Meetings (link to each comment with the date)
