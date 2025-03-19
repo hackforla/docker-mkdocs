@@ -1,0 +1,1267 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../maintainer-guide/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
+    
+    
+      
+        <title>User Guide - Docker MkDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Docker MkDocs" class="md-header__button md-logo" aria-label="Docker MkDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docker MkDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hackforla/docker-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hackforla/docker-mkdocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Docker MkDocs" class="md-nav__button md-logo" aria-label="Docker MkDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Docker MkDocs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hackforla/docker-mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    hackforla/docker-mkdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why we use it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-made-a-docker-image-for-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why we made a docker image for it
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mkdocs docker image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mkdocs docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-it-to-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add it to a project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add it to a project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-local-mkdocs-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup the local mkdocs service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-mkdocs-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup the mkdocs project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-on-docs-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Work on docs locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extend-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extend the image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend the image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get poetry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-new-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the new plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-it-to-the-hackforla-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add it to the hackforla image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintainer-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maintainer Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dockerhub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DockerHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poetry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Poetry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why we use it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-we-made-a-docker-image-for-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why we made a docker image for it
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mkdocs docker image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mkdocs docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-it-to-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add it to a project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add it to a project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-local-mkdocs-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup the local mkdocs service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-the-mkdocs-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup the mkdocs project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-on-docs-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Work on docs locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extend-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extend the image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend the image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get poetry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-new-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the new plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the plugin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-it-to-the-hackforla-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add it to the hackforla image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/hackforla/docker-mkdocs/edit/main/docs/user-guide.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="user-guide">User Guide<a class="headerlink" href="#user-guide" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-it">What is it<a class="headerlink" href="#what-is-it" title="Permanent link">&para;</a></h3>
+<p>Mkdocs is a static site generator for documentation that converts markdown to html.</p>
+<h3 id="why-we-use-it">Why we use it<a class="headerlink" href="#why-we-use-it" title="Permanent link">&para;</a></h3>
+<p>It comes with tools to help create documentation that's pleasing to read and easy to maintain.</p>
+<details class="info">
+<summary>Here's a list of useful features not available in plain markdown</summary>
+<details class="example">
+<summary>Dead link checker</summary>
+<p>Github wiki doesn't check for broken links.</p>
+</details>
+<details class="example">
+<summary><a href="https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/">Tabbed content</a></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux</label><label for="__tabbed_1_2">Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>linux-specific content</p>
+</div>
+<div class="tabbed-block">
+<p>mac-specific content</p>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Site table of contents</summary>
+<p>See the contents of the site in the left sidebar.</p>
+</details>
+<details class="example">
+<summary>Per-page table of contents</summary>
+<p>See the contents of the current page in the right sidebar.</p>
+</details>
+<details class="example">
+<summary>Code and text annotations</summary>
+<div class="highlight"><pre><span></span><code>Click<span class="w"> </span>the<span class="w"> </span>plus<span class="w"> </span>sign<span class="w"> </span>--&gt;<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>This is an explanation text</li>
+</ol>
+</details>
+<details class="example">
+<summary><a href="https://facelessuser.github.io/pymdown-extensions/extensions/blocks/plugins/details/">Expandable text blocks</a></summary>
+<p>That's what this box is!</p>
+</details>
+</details>
+<h3 id="why-we-made-a-docker-image-for-it">Why we made a docker image for it<a class="headerlink" href="#why-we-made-a-docker-image-for-it" title="Permanent link">&para;</a></h3>
+<p>We want to make it very easy for Hack for LA projects to maintain documentation. Having a docker image allows:</p>
+<ul>
+<li>Hack for LA<ul>
+<li>one location to setup and update the mkdocs installation for all projects</li>
+</ul>
+</li>
+<li>Projects<ul>
+<li>to save time on mkdocs setup</li>
+<li>the flexibility to customize configuration</li>
+</ul>
+</li>
+<li>Developers<ul>
+<li>to save time by not having to install mkdocs locally</li>
+<li>to use a simple command to serve and work on documentation</li>
+</ul>
+</li>
+</ul>
+<h2 id="mkdocs-docker-image">Mkdocs docker image<a class="headerlink" href="#mkdocs-docker-image" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-use-it">How to use it<a class="headerlink" href="#how-to-use-it" title="Permanent link">&para;</a></h3>
+<h4 id="add-it-to-a-project">Add it to a project<a class="headerlink" href="#add-it-to-a-project" title="Permanent link">&para;</a></h4>
+<h5 id="setup-the-local-mkdocs-service">Setup the local mkdocs service<a class="headerlink" href="#setup-the-local-mkdocs-service" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>Create <code>docker-compose.yml</code>.</p>
+<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mkdocs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hackforlaops/mkdocs:latest</span><span class="w"> </span><span class="c1"># (1)!</span>
+<span class="w">    </span><span class="c1"># build:</span>
+<span class="w">    </span><span class="c1">#   context: .</span>
+<span class="w">    </span><span class="c1">#   dockerfile: Dockerfile</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs serve -a &quot;0.0.0.0:8000&quot;</span><span class="w"> </span><span class="c1"># (2)!</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8005:8000&quot;</span><span class="w"> </span><span class="c1"># (3)!</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app</span><span class="w"> </span><span class="c1"># (4)!</span>
+</code></pre></div>
+<ol>
+<li>Use the pre-built image file from this project.</li>
+<li>Expose the site to all IPs. This enables browsing the site from another local computer.</li>
+<li>Expose the site on port 8005, in case 8000 is in use by the project.</li>
+<li>Map the current directory to the <code>/app</code> directory in the container. The current directory is expected to have a <code>docs/</code> directory.</li>
+</ol>
+</li>
+</ol>
+<h5 id="setup-the-mkdocs-project">Setup the mkdocs project<a class="headerlink" href="#setup-the-mkdocs-project" title="Permanent link">&para;</a></h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Create a new one</label><label for="__tabbed_2_2">Copy an existing one</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Use the docker image to create the new project</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>run<span class="w"> </span>mkdocs<span class="w"> </span><span class="se">\</span>
+mkdocs<span class="w"> </span>new<span class="w"> </span>.<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>docker-compose run executes a command from a new docker image container. In this case, inside the mkdocs container, execute <code>mkdocs new .</code> (note the period for the current directory).</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Copy the <code>mkdocs.yml</code> and the <code>docs/</code> directory from an existing repo, such as this one.</li>
+<li>Update the configurations in <code>mkdocs.yml</code> to your project's info.</li>
+</ol>
+</div>
+</div>
+</div>
+<h4 id="work-on-docs-locally">Work on docs locally<a class="headerlink" href="#work-on-docs-locally" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Run the mkdocs server from the container</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>Optionally use the <code>-d</code> flag to run the container in the background</li>
+</ol>
+</li>
+<li>
+<p>Open a browser to <a href="https://localhost:8005/"><code>http://localhost:8005/</code></a> to view the documentation locally</p>
+</li>
+<li>
+<p>Modify the files in the docs directory. The site will auto-update when the files are saved.</p>
+</li>
+<li>
+<p>Quit</p>
+<p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to quit the local server and stop the container</p>
+</li>
+</ol>
+<h3 id="extend-the-image">Extend the image<a class="headerlink" href="#extend-the-image" title="Permanent link">&para;</a></h3>
+<p>If your project wants to try other mkdocs plugins not in the hackforla image, here's a way to extend the image on your own before asking to add it to the hackforla image.</p>
+<div class="admonition info">
+<p class="admonition-title">The hackforla image is built from <a href="https://github.com/hackforla/ghpages-docker">hackforla/mkdocs-docker</a>, where the mkdocs plugins are listed in <code>pyproject.toml</code>.</p>
+</div>
+<h4 id="get-poetry">Get poetry<a class="headerlink" href="#get-poetry" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Add your own <code>Dockerfile</code> to install the plugin for local usage that also installs poetry</p>
+<div class="highlight"><span class="filename">Dockerfile.mkdocs</span><pre><span></span><code><span class="c"># base image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">hackforlaops/mkdocs:latest</span>
+
+<span class="c"># set work directory</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># install system dependencies</span>
+<span class="c"># (2)!</span>
+<span class="c">#RUN \</span>
+<span class="c">#  --mount=type=cache,target=/var/cache \</span>
+<span class="c">#  apk add \</span>
+<span class="c">#  # mkdocs-multirepo-plugin requires this</span>
+<span class="c">#  git=2.40.1-r0</span>
+
+<span class="c"># install dependencies</span>
+<span class="c"># (1)!</span>
+<span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<span class="hll"><span class="k">RUN</span><span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">  </span>--mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">  </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">poetry</span><span class="o">==</span><span class="m">1</span>.6.1
+</span></code></pre></div>
+<ol>
+<li>Python plugins should be specified in requirement.txt to be installed.</li>
+<li>Remove or comment out the block unless the plugin requires non-python packages.</li>
+</ol>
+</li>
+<li>
+<p>Reference the new Dockerfile in the docker-compose file</p>
+<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><span class="nn">...</span>
+<span class="w">  </span><span class="nt">mkdocs</span><span class="p">:</span>
+<span class="hll"><span class="w">      </span><span class="c1">#image: hackforlaops/mkdocs:latest</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">build</span><span class="p">:</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile.mkdocs</span>
+</span><span class="nn">...</span>
+</code></pre></div>
+</li>
+<li>
+<p>Build the image.</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>build
+</code></pre></div>
+</li>
+</ol>
+<h4 id="add-the-new-plugin">Add the new plugin<a class="headerlink" href="#add-the-new-plugin" title="Permanent link">&para;</a></h4>
+<p>Now that we have poetry, we can use it to add the plugin.</p>
+<ol>
+<li>
+<p>Create a pyproject.yml similar to the one in this repo.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Generate one using poetry</label><label for="__tabbed_3_2">Copy or create one manually</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>run<span class="w"> </span>mkdocs<span class="w"> </span>poetry<span class="w"> </span>init<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>Do not call the project <code>mkdocs</code> since that's the name of a real project.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">pyproject.yml</span><pre><span></span><code><span class="p p-Indicator">[</span><span class="nv">tool.poetry</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">name = &quot;project-name&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">version = &quot;0.1.0&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">description = &quot;&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">authors = []</span>
+<span class="l l-Scalar l-Scalar-Plain">readme = &quot;README.md&quot;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[tool.poetry.dependencies]</span>
+<span class="l l-Scalar l-Scalar-Plain">python = &quot;^3.11.4&quot;</span><span class="w"> </span><span class="c1"># (1)!</span>
+
+<span class="p p-Indicator">[</span><span class="nv">build-system</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">build-backend = &quot;poetry.core.masonry.api&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">requires = [</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&quot;poetry-core&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">]</span>
+</code></pre></div>
+<ol>
+<li>This is the python version in the <code>hackforla/docker-mkdocs/pyproject.toml</code> file. It can also be the version that's in the <code>hackforla/docker-mkdocs/Dockerfile</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Add the new plugin</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># (1)!</span>
+docker-compose<span class="w"> </span>run<span class="w"> </span>mkdocs<span class="w"> </span><span class="se">\</span>
+poetry<span class="w"> </span>add<span class="w"> </span>mkdocs-awesome-pages-plugin<span class="w"> </span>--group<span class="w"> </span>docs<span class="w"> </span><span class="c1"># (2)!</span>
+</code></pre></div>
+<ol>
+<li>This docker-compose command runs the second line inside the docker container</li>
+<li>Add (install) mkdocs-awesome-pages to pyproject.toml under the docs group. This is in case your project also uses poetry and need to separate the docs dependencies from the rest.</li>
+</ol>
+</li>
+</ol>
+<h4 id="build-the-image">Build the image<a class="headerlink" href="#build-the-image" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Export the requirements.txt</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>run<span class="w"> </span>mkdocs<span class="w"> </span><span class="se">\</span>
+poetry<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-f<span class="w"> </span>requirements.txt<span class="w"> </span>--without-hashes<span class="w"> </span>--with<span class="w"> </span>docs<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>Export dependencies, including the docs group, in requirements.txt format, to requirements.txt.</li>
+</ol>
+</li>
+<li>
+<p>Build and run the docker image with the new plugin</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</code></pre></div>
+</li>
+</ol>
+<h4 id="use-the-plugin">Use the plugin<a class="headerlink" href="#use-the-plugin" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Add any configuration to <code>mkdocs.yml</code></li>
+<li>Use the plugin in the documentation</li>
+<li>Test that the plugin works</li>
+</ol>
+<h4 id="add-it-to-the-hackforla-image">Add it to the hackforla image<a class="headerlink" href="#add-it-to-the-hackforla-image" title="Permanent link">&para;</a></h4>
+<p>If the plugin works well for your project, and you would like it to be added at the organization level. Please do as much of the following as you can.</p>
+<ol>
+<li>Create a documentation page about the plugin: What it is, how it's useful, how to use it. etc..</li>
+<li>Create a PR in <code>hackforla/docker-mkdocs</code> with the necessary changes to add the plugin, including the documentation page.</li>
+<li>Follow up in slack, maybe in the hackforla #engineering channel.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tracking", "search.highlight"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
