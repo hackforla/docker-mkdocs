@@ -5,9 +5,12 @@ description = ""
 authors = []
 readme = "README.md"
 
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+
 [tool.poetry.dependencies]
 python = "^3.11.4"
-mkdocs = "^1.4.3"
+mkdocs = "^1.6.1"
 mkdocs-material = "^9.1.17"
 mkdocs-autolinks-plugin = "^0.7.1"
 #mkdocs-multirepo-plugin = "^0.6.1"
